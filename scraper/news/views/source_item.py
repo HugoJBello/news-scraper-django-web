@@ -5,7 +5,7 @@ from ..managers.api_manager import ApiManager
 api_manager = ApiManager()
 
 def source_item(request, source_id):
-    results = api_manager.get_news_item(source_id)
+    results = api_manager.get_results_in_newspaper(source_id)
     index = results["scrapingIndex"]
     news = results["news"]
     for new in news:

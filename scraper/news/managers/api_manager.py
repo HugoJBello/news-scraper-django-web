@@ -17,12 +17,16 @@ class ApiManager:
         resp = requests.get(url)
         return resp.json()["payload"]["rows"][0]
     
-    def get_news_item(self, newspaper:str):
+    def get_news_item(self, id:str):
+        url = self.api_url + "/api/v1/newScraped/findQuery?&limit=1&id=" + id
+        resp = requests.get(url)
+        return resp.json()["payload"]["rows"][0]
+ 
+    def get_results_in_newspaper(self, newspaper:str):
         url = self.api_url + "/api/v1/resultsInNewspaper/find?newspaper=" + newspaper
         resp = requests.get(url)
         return resp.json()["payload"]
- 
-    
+  
     def get_global_config(self):
         url = self.api_url + "/api/v1/globalConfig/findQuery?limit=9999&orderByParam=createdAt&orderDirection=DESC"
         resp = requests.get(url)
