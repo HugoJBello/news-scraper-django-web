@@ -20,8 +20,8 @@ class ApiManager:
     def get_news_item(self, newspaper:str):
         url = self.api_url + "/api/v1/resultsInNewspaper/find?newspaper=" + newspaper
         resp = requests.get(url)
-        return resp.json()["payload"]["rows"]
-
+        return resp.json()["payload"]
+ 
     
     def get_global_config(self):
         url = self.api_url + "/api/v1/globalConfig/findQuery?limit=9999&orderByParam=createdAt&orderDirection=DESC"

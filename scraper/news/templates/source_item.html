@@ -7,4 +7,69 @@
 
 {% include "navbar_source.html" with url=index.logoUrl newspaper=index.newspaper %}
 
+<body>
+    {% for item in news %}
 
+        <div
+        class="card mb-3 centered"
+        style="max-width: 1200px"
+        >
+        <a href="{{item.link}}">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{item.image}}" class="img-fluid img-thumbnail" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ item.headline }}</h5>
+                <p class="card-text">{{ item.description }}</p>
+                <p class="text-muted">
+                  <small class="date">{{ item.date_from_now }}</small>
+                  <small class="other">{{ item.newsIndex }} </small>
+                  
+                </p>
+                <p class="text-muted">
+                  <small class="other">
+                    {% for tag in item.sections %}
+                    <span class="badge bg-secondary tag">{{tag}}</span>
+                    {% endfor %} 
+                  </small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  {% endfor %} 
+
+
+<style scoped lang="scss">
+    .other {
+      margin-left: 3px;
+    }
+    .img-logo {
+      max-height: 30px;
+    }
+    .centered {
+      margin: 0 auto;
+    }
+    .tag{
+      margin-right: 3px;
+    }
+    .title {
+      text-align: center;
+      margin: 25px;
+    }
+    .card_container {
+      @media (max-width: 768px) {
+        padding: 5px;
+      }
+      a {
+        all: unset;
+      }
+    }
+    </style>
+
+</body>
