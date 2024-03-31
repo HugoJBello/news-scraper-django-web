@@ -5,5 +5,57 @@
 {% include "style.css" %}    
 
 <body>
-<p class="test"> {{  content }}</p> 
+{% for item in indexes %}
+<br>
+<div class="card mb-3 centered card-item">
+<a href="{{item.link}}">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img
+        src="{{item.logoUrl}}"
+        class="img-fluid img-thumbnail img-max"
+      />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ item.newspaper }}</h5>
+        <p class="card-text">
+          <small class="text-muted">{{ item.date_from_now }}</small> <small class="text-muted">{{ item.scraperId }}</small>
+        </p>
+      </div>
+    </div>
+    </div>
+</a>
+</div>
+{% endfor %} 
+
+<style scoped lang="scss">
+    .img-logo {
+        max-height: 30px;
+      }
+      .centered {
+        margin: 0 auto;
+      }
+      .title {
+        text-align: center;
+        margin: 25px;
+      }
+      .card-item{
+        max-width: 600px;
+      }
+      .img-max{
+        max-height:100px;
+      }
+      .card_container {
+        margin-top:30px;
+        display: flex;
+        justify-content: center;
+        @media (max-width: 768px) {
+          padding: 5px;
+        }
+        a {
+          all: unset;
+        }
+      }
+    </style>
 </body>

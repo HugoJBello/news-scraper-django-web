@@ -1,6 +1,7 @@
 from django.urls import path
 
-from .views.sources import sources, source_item
+from .views.sources import sources
+from .views.source_item import source_item
 from .views.index import index
 from . import views
 
