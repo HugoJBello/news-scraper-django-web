@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from news.views.index import index
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path("", index, name="index"),
@@ -24,3 +25,5 @@ urlpatterns = [
     path("news/", include("news.urls")), 
 
 ]
+
+urlpatterns += staticfiles_urlpatterns()

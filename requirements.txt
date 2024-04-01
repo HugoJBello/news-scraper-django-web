@@ -9,6 +9,7 @@ gunicorn==21.2.0
 idna==3.6
 Markdown==3.6
 packaging==24.0
+python-dotenv==1.0.1
 requests==2.31.0
 soupsieve==2.5
 sqlparse==0.4.4

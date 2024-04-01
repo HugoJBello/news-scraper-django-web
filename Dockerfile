@@ -9,8 +9,8 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 # Mounts the application code to the image
-COPY . code
-WORKDIR /code
+COPY . .
+WORKDIR /
 
 EXPOSE 8000
 

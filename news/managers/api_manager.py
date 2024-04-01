@@ -1,10 +1,13 @@
+import os
 import requests
-default_api_url = "https://pettier-kiwi-7067.dataplicity.io/news"
+
+default_api_url = os.getenv("API_URL")
 
 class ApiManager:
+    
     api_url = ""
-    def __init__(self, api_url:str = default_api_url):
-        self.api_url = api_url
+    def __init__(self):
+        self.api_url = default_api_url
         
     def get_all_indexes(self):
         url =self.api_url + "/api/v1/scrapingIndex/findQuery?&limit=99999&orderByParam=createdAt&orderDirection=ASC"
