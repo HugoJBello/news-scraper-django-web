@@ -14,18 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import os
 from django.contrib import admin
 from django.urls import include, path
 from news.views.index import index
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-base_subdomain="news_scraper_django_web/"
+base_subdomain = os.getenv("BASE_SUBDOMAIN")
 
 urlpatterns = [
     path(base_subdomain, index, name="index"),
     path(base_subdomain + "admin/", admin.site.urls),
     path(base_subdomain + "news/", include("news.urls")), 
-
 ]
 
 urlpatterns += staticfiles_urlpatterns()
