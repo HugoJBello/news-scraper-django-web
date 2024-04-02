@@ -19,10 +19,12 @@ from django.urls import include, path
 from news.views.index import index
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+base_subdomain="news_scraper_django_web/"
+
 urlpatterns = [
-    path("", index, name="index"),
-    path('admin/', admin.site.urls),
-    path("news/", include("news.urls")), 
+    path(base_subdomain, index, name="index"),
+    path(base_subdomain + "admin/", admin.site.urls),
+    path(base_subdomain + "news/", include("news.urls")), 
 
 ]
 
