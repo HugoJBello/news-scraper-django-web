@@ -12,7 +12,7 @@ RUN pip install -r requirements.txt
 COPY . .
 WORKDIR /
 
-EXPOSE 8000
+EXPOSE 8003
 
 # runs the production server
-CMD ["gunicorn", "scraper.wsgi"]
+CMD ["gunicorn", "-b 127.0.0.1:8003", "scraper.wsgi"]
